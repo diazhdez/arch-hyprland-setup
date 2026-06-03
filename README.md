@@ -50,7 +50,7 @@ ping -c 3 archlinux.org
 ### Sincronizar reloj y confirmar disco
 
 > [!NOTE]
-> Confirma que `nvme0n1` es tu SSD de 931 GB. `sda` es la USB — **no la toques**.
+> Confirma que `nvme0n1` es tu SSD. `sda` es la USB — **no la toques**.
 
 ```bash
 timedatectl set-ntp true
