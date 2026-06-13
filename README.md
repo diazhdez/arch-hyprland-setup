@@ -183,7 +183,7 @@ grep 'model name' /proc/cpuinfo | head -1
 > Esto tarda varios minutos. Reemplaza `amd-ucode` por `intel-ucode` si tu CPU es Intel.
 
 ```bash
-pacstrap -K /mnt base base-devel linux linux-headers linux-firmware \
+pacstrap -K /mnt base base-devel linux linux-firmware \
   btrfs-progs grub efibootmgr networkmanager sudo neovim git amd-ucode
 ```
 
@@ -335,7 +335,7 @@ Navega a `Activate a connection` → selecciona tu WiFi → ingresa la contrase�
 ### Habilitar repositorio multilib
 
 ```bash
-sudo nvim /etc/pacman.conf
+sudo micro /etc/pacman.conf
 ```
 
 Busca y descomenta estas dos líneas (quita el `#`):
@@ -345,7 +345,7 @@ Busca y descomenta estas dos líneas (quita el `#`):
 Include = /etc/pacman.d/mirrorlist
 ```
 
-Guarda y sal (`:wq`), luego sincroniza:
+Guarda y sal (`Ctrl - s` + `Ctrl - q`), luego sincroniza:
 
 ```bash
 sudo pacman -Sy

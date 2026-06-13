@@ -53,7 +53,7 @@ pacman_packages=(
 
     # Herramientas CLI esenciales
     wget unzip ripgrep fd tree man-db openssh
-    fzf eza bat zoxide neovim stow imagemagick rsync
+    fzf eza bat zoxide micro stow imagemagick rsync
     github-cli yt-dlp
 
     # Utilidades del sistema
