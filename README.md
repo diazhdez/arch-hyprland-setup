@@ -184,7 +184,7 @@ grep 'model name' /proc/cpuinfo | head -1
 
 ```bash
 pacstrap -K /mnt base base-devel linux linux-firmware \
-  btrfs-progs grub efibootmgr networkmanager sudo neovim git amd-ucode
+  btrfs-progs grub efibootmgr networkmanager sudo micro git amd-ucode
 ```
 
 ---
