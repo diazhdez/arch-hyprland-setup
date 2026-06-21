@@ -97,11 +97,16 @@ echo -e "${PINK}\n--------------------------------------------------------------
 echo -e "${PINK}\n---------------------------------------------------------------------\n${YELLOW}[8/8]${PINK} ==> Display manager & GTK themes\n---------------------------------------------------------------------\n${WHITE}"
 
 if [[ ! -e /etc/systemd/system/display-manager.service ]]; then
-    sudo systemctl enable sddm
-    echo -e "[Theme]\nCurrent=sddm-astronaut-theme" | sudo tee -a /etc/sddm.conf
-    sudo sed -i 's|astronaut.conf|purple_leaves.conf|' \
-        /usr/share/sddm/themes/sddm-astronaut-theme/metadata.desktop
-    echo -e "\n${PINK}SDDM has been enabled."
+    sudo tee /etc/greetd/config.toml >/dev/null <<'EOF'
+[terminal]
+vt = 1
+
+[default_session]
+command = "tuigreet --remember --time --cmd Hyprland"
+user = "greeter"
+EOF
+    sudo systemctl enable greetd.service
+    echo -e "\n${PINK}greetd (tuigreet) has been enabled."
 fi
 
 ~/dotfiles/scripts/gtkthemes.sh
