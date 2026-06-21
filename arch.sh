@@ -36,8 +36,8 @@ sudo localectl set-locale LANG=en_US.UTF-8
 # ─────────────────────────────────────────────
 echo -e "${GREEN}\n---------------------------------------------------------------------\n${YELLOW}[3/8]${GREEN} ==> Installing yay\n---------------------------------------------------------------------\n${WHITE}"
 sudo pacman -S --noconfirm --needed base-devel git
-git clone https://aur.archlinux.org/yay.git ~/yay
-cd ~/yay
+git clone https://aur.archlinux.org/paru.git ~/paru
+cd ~/paru
 makepkg -si --noconfirm
 cd ~
 rm -rf ~/yay
@@ -48,9 +48,6 @@ rm -rf ~/yay
 echo -e "${GREEN}\n---------------------------------------------------------------------\n${YELLOW}[4/8]${GREEN} ==> Installing pacman packages\n---------------------------------------------------------------------\n${WHITE}"
 
 pacman_packages=(
-    # Monitor del sistema
-    btop
-
     # Herramientas CLI esenciales
     wget unzip ripgrep fd tree man-db openssh
     fzf eza bat zoxide micro stow imagemagick rsync
@@ -77,7 +74,7 @@ aur_packages=(
     oh-my-posh
 )
 
-yay -S --noconfirm "${aur_packages[@]}"
+paru -S --noconfirm "${aur_packages[@]}"
 
 # ─────────────────────────────────────────────
 # [5.5/8] Instalar kitten (image preview en terminal)
